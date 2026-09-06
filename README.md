@@ -16,3 +16,6 @@ MIDIcraft is a Minecraft mod that lets you control the game with a MIDI controll
 
 ## How it works
 MIDIcraft recognizes your connected MIDI devices and reads their input! The input is then converted into Minecraft actions, which will then be executed.
+
+## License
+This project uses a custom license! To sum it up: you can use, redistribute and fork the project, as long as the original creator is properly attributed, and you are not making any profit. For details, please read the [LICENSE](LICENSE.txt).
