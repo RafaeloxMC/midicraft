@@ -1,2 +1,15 @@
 Copyright (c) 2026 xvcf
-All rights reserved.
+
+Noncommercial use, copying, modification, and redistribution of this
+mod are permitted, provided that proper credit is given to the
+original author.
+
+Commercial use, sale, paid distribution, monetized hosting, inclusion
+in commercial products, and use in paid services require prior written
+permission from the copyright holder.
+
+Modified versions must clearly identify their changes and retain this
+license notice.
+
+Free, noncommercial modpacks may include this mod, provided that the
+mod is not sold, paywalled, or redistributed without proper credit.
