@@ -1,9 +1,10 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "dev.xvcf.midicraft.mixin.client",
+  "package": "dev.xvcf.midicraft.client.mixins",
   "compatibilityLevel": "JAVA_25",
   "client": [
+    "KeyboardInputMixin"
   ],
   "injectors": {
     "defaultRequire": 1

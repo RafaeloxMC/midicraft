@@ -25,18 +25,13 @@ public class MidiReceiver implements Receiver {
 
     void handleInput(ShortMessage shortMessage) {
         // Structure: [-112, NOTE_ID, VELOCITY]
-        // -112 seems to be the command ID for NOTE_ON
-        MidicraftClient.LOGGER.info("MIDI Message: {}", Arrays.toString(shortMessage.getMessage()));
-        assert Minecraft.getInstance().player != null;
-        ClientInput input = Minecraft.getInstance().player.input;
-        input.keyPresses = new Input(
-                true,
-                input.keyPresses.backward(),
-                input.keyPresses.left(),
-                input.keyPresses.right(),
-                input.keyPresses.jump(),
-                input.keyPresses.shift(),
-                input.keyPresses.sprint()
-        );
+        // -112 is command ID for NOTE_ON; -128 is command ID for NOTE_OFF
+        MidicraftClient.getInstance().getLogger().debug("MIDI Message: {}", Arrays.toString(shortMessage.getMessage()));
+        if(shortMessage.getCommand() == ShortMessage.NOTE_ON) {
+            MidicraftClient.getInstance().getMidiInputProcessor().addKey(shortMessage.getData1());
+        }
+        if(shortMessage.getCommand() == ShortMessage.NOTE_OFF) {
+            MidicraftClient.getInstance().getMidiInputProcessor().removeKey(shortMessage.getData1());
+        }
     }
 }

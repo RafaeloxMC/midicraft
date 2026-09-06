@@ -1,5 +1,6 @@
 package dev.xvcf.midicraft.client;
 
+import dev.xvcf.midicraft.client.util.MidiInputProcessor;
 import dev.xvcf.midicraft.client.util.MidiReceiver;
 import net.fabricmc.api.ClientModInitializer;
 import org.slf4j.Logger;
@@ -10,13 +11,18 @@ import javax.sound.midi.MidiDevice.Info;
 
 public class MidicraftClient implements ClientModInitializer {
 
-    public static final Logger LOGGER = LoggerFactory.getLogger("midicraft");
+    private static MidicraftClient instance;
+    private final Logger logger = LoggerFactory.getLogger("midicraft");
+    private MidiInputProcessor midiInputProcessor;
 
     @Override
     public void onInitializeClient() {
+        instance = this;
+        midiInputProcessor = new MidiInputProcessor();
+
         Info[] infos = MidiSystem.getMidiDeviceInfo();
-        LOGGER.info("--------------------------");
-        LOGGER.info("Found MIDI system devices:");
+        getLogger().info("--------------------------");
+        getLogger().info("Found MIDI system devices:");
         for (Info info : infos) {
             try {
                 MidiDevice inputDevice = MidiSystem.getMidiDevice(info);
@@ -24,12 +30,24 @@ public class MidicraftClient implements ClientModInitializer {
                 Transmitter transmitter = inputDevice.getTransmitter();
                 Receiver receiver = new MidiReceiver();
                 transmitter.setReceiver(receiver);
-                LOGGER.info("Available {}", info.getName());
+                getLogger().info("Available {}", info.getName());
             } catch (MidiUnavailableException e) {
-                LOGGER.info("Unavailable {}", info.getName());
+                getLogger().info("Unavailable {}", info.getName());
             }
 
         }
-        LOGGER.info("--------------------------");
+        getLogger().info("--------------------------");
+    }
+
+    public static MidicraftClient getInstance() {
+        return instance;
+    }
+
+    public Logger getLogger() {
+        return logger;
+    }
+
+    public MidiInputProcessor getMidiInputProcessor() {
+        return midiInputProcessor;
     }
 }
