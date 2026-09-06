@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "midicraft",
+  "version": "${version}",
+  "name": "MIDIcraft",
+  "description": "Simple yaw & pitch setter with saving options",
+  "authors": [],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "icon": "assets/midicraft/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "fabric-datagen": [
+      "dev.xvcf.midicraft.client.MidicraftDataGenerator"
+    ],
+    "client": [
+      "dev.xvcf.midicraft.client.MidicraftClient"
+    ],
+    "main": [
+      "dev.xvcf.midicraft.Midicraft"
+    ]
+  },
+  "mixins": [
+    "midicraft.mixins.json",
+    {
+      "config": "midicraft.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
