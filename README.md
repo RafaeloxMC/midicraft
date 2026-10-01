@@ -17,5 +17,18 @@ MIDIcraft is a Minecraft mod that lets you control the game with a MIDI controll
 ## How it works
 MIDIcraft recognizes your connected MIDI devices and reads their input! The input is then converted into Minecraft actions, which will then be executed.
 
+## Downloading
+You can download the mod on Modrinth [here](https://modrinth.com/mod/midicraft-mod)!
+
+## Movement
+Currently, the key layout is:
+- A3: Sprinting
+- B3: Sneaking
+- C4: Walk Left
+- C#4: Walk Straight
+- D4: Walk Back
+- E4: Walk Right
+- F4: Jump
+
 ## License
 This project uses a custom license! To sum it up: you can use, redistribute and fork the project, as long as the original creator is properly attributed, and you are not making any profit. For details, please read the [LICENSE](LICENSE.txt).
